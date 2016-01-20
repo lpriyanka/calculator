@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <script type="text/javascript">
+
+        function clearA() {
+            document.getElementById("A").value = "";
+            //document.getElementById('TextBox1').value = "";
+        }
+        function clearB() {
+            document.getElementById("B").value = "";
+           
+        }
+        function clearResult() {
+            document.getElementById("result").value = "";
+            
+        }
+        
+        function clearoperator() {
+            document.getElementById("operand").value = "";
+            changeNumberButtonOnclick("inputForOperand(this.value)");
+        }
+        function clearAll() {
+            document.getElementById('A').value = "";
+            document.getElementById('B').value = "";
+            document.getElementById('operand').value = "";
+            document.getElementById('result').value = "";
+       
+        }
+        function inputForA(a) {
+            document.getElementById("A").value += a;
+        }
+        function inputForB(a) {
+            document.getElementById("B").value += a;
+        }
+        function inputForOperand(a) {
+          document.getElementById("operand").value += a;
+        }
+
+        function sum() {
+            var txtFirstNumberValue = document.getElementById('A').value;
+            var txtSecondNumberValue = document.getElementById('B').value;
+            var result = parseInt(txtFirstNumberValue) + parseInt(txtSecondNumberValue);
+            if (!isNaN(result)) {
+                document.getElementById('result').value = result;
+            }
+        }
+        function Div() {
+            var txtFirstNumberValue = document.getElementById('A').value;
+            var txtSecondNumberValue = document.getElementById('B').value;
+            var result = parseInt(txtFirstNumberValue) / parseInt(txtSecondNumberValue);
+            if (!isNaN(result)) {
+                document.getElementById('result').value = result;
+            }
+        }
+        function sub() {
+            var txtFirstNumberValue = document.getElementById('A').value;
+            var txtSecondNumberValue = document.getElementById('B').value;
+            var result = parseInt(txtFirstNumberValue) - parseInt(txtSecondNumberValue);
+            if (!isNaN(result)) {
+                document.getElementById('result').value = result;
+            }
+        }
+        function mul() {
+            var txtFirstNumberValue = document.getElementById('A').value;
+            var txtSecondNumberValue = document.getElementById('B').value;
+            var result = parseInt(txtFirstNumberValue) * parseInt(txtSecondNumberValue);
+            if (!isNaN(result)) {
+                document.getElementById('result').value = result;
+            }
+        }
+
+        function Symbol() { //start doSearch
+            var searchvalue = document.getElementById('operand').value;
+
+            switch (searchvalue) { //start switch statement
+                case "+": sum() 
+                    break
+                case "-": sub();
+                    break
+                case "*": mul();
+                    break
+                case "/": Div();
+               
+                    break
+            }
+        }//end switch statement
+
+
+
+    </script>
+</head>
+<body>
+    <h3>Simple Calculator</h3>
+    <br />
+    <form name="calc">
+        <table>
+           <tr>
+               <td>
+                  value1: <input type="text" name="A" id="A" size=8 readonly="readonly">
+                  ArthematicSymbol:<input type="text" name="operand" size =8 id="operand" readonly="readonly">
+                  value2: <input type="text" name="B" id="B" size=8 readonly="readonly">
+                  Result: <input type="text" name="result" id="result" size=8 readonly="readonly">
+               </td>
+               
+           </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <input type="button" value="ClearValue1" onclick="clearA()">
+                <input type="button" value="ClearValue2" onclick="clearB()">
+                <input type="button" value="ClearResult" onclick="clearResult()">
+                <input type="button" value="ClearALL" onclick="clearAll()">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="numberButton" type="button" value="0" onclick="inputForA(this.value)">
+                    <input class="numberButton" type="button" value="1" onclick="inputForA(this.value)">
+                    <input class="numberButton" type="button" value="2" onclick="inputForA(this.value)">
+                    <input type="button" value="+" onclick="inputForOperand(this.value)">
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                   <input class="numberButton" type="button" value="3" OnClick="inputForA(this.value)">
+                   <input class="numberButton" type="button" value="4" onclick="inputForA(this.value)">
+                   <input class="numberButton" type="button" value="5" onclick="inputForA(this.value)">
+                    <input type="button" value="-" onclick="inputForOperand(this.value)">
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <input class="numberButton" type="button" value="6" onclick="inputForA(this.value)">
+                    <input class="numberButton" type="button" value="7" onclick="inputForB(this.value)">
+                     <input class="numberButton" type="button" value="8" onclick="inputForB(this.value)">
+                     <input type="button" value="*" onclick="inputForOperand(this.value)">
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                <input class="numberButton" type="button" value="9" onclick="inputForB(this.value)">
+                <input class="numberButton" type="button" value="." onclick="inputForB(this.value)">
+                    <input type="button" value="=" onclick="Javascript:Symbol()">
+                <input type="button" value="/" onclick="inputForOperand(this.value)" />
+
+                </td>
+
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>
